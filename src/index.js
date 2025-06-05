@@ -4,6 +4,7 @@ import Abc,{Aboutpage1, Aboutpage2, Mypage} from "./About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./style.css";
+import Contactus from './Contactus';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,5 +13,6 @@ root.render(
     <Aboutpage1/>
     <Aboutpage2/>
     <Mypage/>
+    <Contactus/>
   </React.StrictMode>
 );
