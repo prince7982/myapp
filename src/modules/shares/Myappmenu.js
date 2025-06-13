@@ -1,27 +1,34 @@
+import One from "../shares/assets/prince logo.png"
+
 export const myapplist = [
     {
         appname:"profile",
         approut:"profile",
-        appicons:""
+        appicons:One
     },
     {
         appname:"Balance",
         approut:"balance",
-        appicons:""
+        appicons:One
     },
     {
         appname:"Sales",
         approut:"salespage",
-        appicons:""
+        appicons:One
     },
     {
         appname:"profile",
         approut:"profile",
-        appicons:""
+        appicons:One
     },
     {
         appname:"profile",
         approut:"profile",
-        appicons:""
+        appicons:One
+    },
+    {
+        appname:"profile",
+        approut:"profile",
+        appicons:One
     }
 ];
