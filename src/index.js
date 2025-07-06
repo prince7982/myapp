@@ -18,35 +18,41 @@ import Productlistpage from './modules/dashboard/components/Productlistpage';
 import Productdetailspage from './modules/dashboard/components/Productdetailspage';
 import Mygraphpage from './modules/dashboard/components/Mygraphpage';
 import Mainbranch from './modules/dashboard/components/Mainbranch';
+import { Provider } from 'react-redux';
+import { Mystore } from './reduxpage/Mystore';
+import Reduxpage from './reduxpage/Reduxpage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='' element={<Loginpage />}></Route>
-        <Route path='register' element={<Registerpage />}></Route>
-        <Route path='dashboard' element={<Welcomepage />}></Route>
-        <Route path='dashboard/profile' element={<Profilepage />}>
-          <Route path='' element={<Mainpage />}></Route>
-          <Route path='home' element={<Homepage/>}></Route>
-          <Route path='about' element={<Aboutpage />}></Route>
-          <Route path='contact' element={<Contactpage />}></Route>
-          <Route path='productlist' element={<Productlistpage />}></Route>
-          <Route path='productlist/detailspage/:id' element={<Productdetailspage/>}></Route>
-          <Route path='graph' element={<Mygraphpage/>}></Route>
-          <Route path='property' element={<Mainbranch/>}></Route>
+    <Provider store={Mystore}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='' element={<Loginpage />}></Route>
+          <Route path='register' element={<Registerpage />}></Route>
+          <Route path='dashboard' element={<Welcomepage />}></Route>
+          <Route path='dashboard/profile' element={<Profilepage />}>
+            <Route path='' element={<Mainpage />}></Route>
+            <Route path='home' element={<Homepage />}></Route>
+            <Route path='about' element={<Aboutpage />}></Route>
+            <Route path='contact' element={<Contactpage />}></Route>
+            <Route path='productlist' element={<Productlistpage />}></Route>
+            <Route path='productlist/detailspage/:id' element={<Productdetailspage />}></Route>
+            <Route path='graph' element={<Mygraphpage />}></Route>
+            <Route path='property' element={<Mainbranch />}></Route>
+            <Route path='reduxpage' element={<Reduxpage />}></Route>
 
-          <Route path='price' element={<Mainpage />}></Route>
+            <Route path='price' element={<Mainpage />}></Route>
+
+            <Route path='*' element={<Errorpage />}></Route>
+
+          </Route>
+
 
           <Route path='*' element={<Errorpage />}></Route>
-
-        </Route>
-
-        
-        <Route path='*' element={<Errorpage />}></Route>
-        <Route path='myeffect' element={<MyEffect />}></Route>
-      </Routes>
-    </BrowserRouter>
+          <Route path='myeffect' element={<MyEffect />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
