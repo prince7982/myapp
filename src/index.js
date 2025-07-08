@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
@@ -21,6 +21,9 @@ import Mainbranch from './modules/dashboard/components/Mainbranch';
 import { Provider } from 'react-redux';
 import { Mystore } from './reduxpage/Mystore';
 import Reduxpage from './reduxpage/Reduxpage';
+//import Mylazypage from './modules/dashboard/components/Mylazypage';
+const Mylazypage = lazy(()=>import('./modules/dashboard/components/Mylazypage'));
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -41,6 +44,11 @@ root.render(
             <Route path='graph' element={<Mygraphpage />}></Route>
             <Route path='property' element={<Mainbranch />}></Route>
             <Route path='reduxpage' element={<Reduxpage />}></Route>
+            <Route path='lazypage' element={
+              <Suspense fallback={<h1 className='myloader'>loadingpage...</h1>}>
+                <Mylazypage/>
+              </Suspense>
+            }></Route>
 
             <Route path='price' element={<Mainpage />}></Route>
 
